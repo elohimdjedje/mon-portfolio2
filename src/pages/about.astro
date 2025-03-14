@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Elohim M" description="About Elohim M Lorem Ipsum">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Découvrez mon parcours et mes compétences"
+			>
+				<img
+					class="hero-image fade-in"
+					width="500"
+					height="100"
+					src="/assets/mikou1.jpg"
+					alt="Elohim Mickaël at Study "
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title fade-in-left">BACKGROUND</h2>
+				<div class="content fade-in-right">
+					<p>
+						D'une formation en informatique initiale, j'ai évolué au fil des années dans de nombreux domaines informatiques. 
+						Tour à tour, compétence après compétence, j'ai pu acquérir de l'expérience dans le domaine que j'étudie.
+					</p>
+					<p>
+						Ce qui me caractérise le plus, c'est ma capacité à m'adapter à de nouveaux environnements et à apprendre de nouvelles choses et de nouvelles technologies.
+					</p>
+					<p>
+						D'une nature ouverte, j'accorde une grande importance à la communication et au partage de connaissances.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title fade-in-left">EDUCATION</h2>
+				<div class="content fade-in-right">
+					<p>  • BUT Informatique, 09/2024 - En cours...
+						<br>École centrale d'électronique : École d'ingénieur - Paris.
+					</p>
+					<p>
+						• Baccalauréat Scientifique, 2021/2022
+						<br>Lycée d'Ayamé, Côte d'Ivoire.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="section-title fade-in-left">SOFT SKILLS</h2>
+				<div class="content fade-in-right">
+					<p> • Passionné par l'ergonomie et l'expérience utilisateur</p>
+					<p> • Approche pratique et créative</p>
+					<p> • Capacité d'adaptation aux besoins variés du projet</p>
+					<p> • Bonne communication et esprit d'équipe</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title fade-in-left">COMPÉTENCES</h2>
+				<div class="content fade-in-right">
+					<p> • Maitrise du langage HTML/CSS</p>
+					<p> •  Gestionnaire de base de donnéesMySQL(xamps)</p>
+					<p> •  Connaissance des frameworks React</p>
+					<p> •  Programmation basique Python</p>
+					<p> •  Javascript</p>
+					<p> •  Java</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	/* Animations */
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(50px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes fadeInLeft {
+		from {
+			opacity: 0;
+			transform: translateX(-50px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	@keyframes fadeInRight {
+		from {
+			opacity: 0;
+			transform: translateX(50px);
+		}
+		to {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	.fade-in {
+		opacity: 0;
+		animation: fadeIn 1.5s ease-out forwards;
+	}
+
+	.fade-in-left {
+		opacity: 0;
+		animation: fadeInLeft 1.5s ease-out forwards;
+	}
+
+	.fade-in-right {
+		opacity: 0;
+		animation: fadeInRight 1.5s ease-out forwards;
+	}
+
+	/* Désactive l'animation au départ */
+	.hidden {
+		opacity: 0;
+		transform: translateY(50px);
+		transition: all 1.5s ease-out;
+	}
+
+	/* Mise en page */
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		const elements = document.querySelectorAll(".fade-in, .fade-in-left, .fade-in-right");
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+					observer.unobserve(entry.target);
+				}
+			});
+		}, {
+			threshold: 0.2
+		});
+
+		elements.forEach(element => {
+			observer.observe(element);
+		});
+	});
+</script>

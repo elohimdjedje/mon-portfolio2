@@ -1,0 +1,65 @@
+---
+import Icon from './Icon.astro';
+---
+
+<section class="box skills">
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Front End</h2>
+		<p>Un étudiant passionné par le front-end, maîtrisant le design et l'UX, crée des interfaces captivantes avec une vision esthétique affirmée.</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Esprit D’équipe</h2>
+		<p>
+			Pour moi, l'esprit d'équipe est bien plus qu'une simple compétence professionnelle : c'est une philosophie qui guide ma manière de travailler et d'interagir avec les autres.
+			Ces collaborations m'ont appris à adapter ma communication, à partager mes connaissances et à apprendre des autres. Par exemple, lors d'un projet récent, j'ai collaboré avec une équipe dont d'autre étudiant de ma promo pour développer un site web. Grâce à une communication ouverte et à une répartition claire des tâches, nous avons livré le projet en avance tout en dépassant les attentes du prof.
+		</p>
+	</div>
+	<div class="stack gap-2 lg:gap-4">
+		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+		<h2>Vision 360°</h2>
+		<p>Je ne me contente pas de résoudre des problèmes à court terme ; je m'efforce de comprendre les enjeux sous-jacents et les objectifs à long terme de chaque projet. Que ce soit en développant une application web, en optimisant un processus ou en concevant une expérience utilisateur, je prends toujours du recul pour analyser comment mes actions s'intègrent dans une vision plus large.</p>
+	</div>
+</section>
+
+<style>
+	.box {
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		padding: 1.5rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.skills {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.skills h2 {
+		font-size: var(--text-lg);
+	}
+
+	.skills p {
+		color: var(--gray-400);
+	}
+
+	@media (min-width: 50em) {
+		.box {
+			border-radius: 1.5rem;
+			padding: 2.5rem;
+		}
+
+		.skills {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 5rem;
+		}
+
+		.skills h2 {
+			font-size: var(--text-2xl);
+		}
+	}
+</style>
